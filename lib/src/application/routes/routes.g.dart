@@ -8,6 +8,7 @@ part of 'routes.dart';
 
 List<RouteBase> get $appRoutes => [
       $splashScreenRoute,
+      $homeScreenRoute,
     ];
 
 RouteBase get $splashScreenRoute => GoRouteData.$route(
@@ -22,6 +23,55 @@ extension $SplashScreenRouteExtension on SplashScreenRoute {
 
   String get location => GoRouteData.$location(
         '/splash',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $homeScreenRoute => GoRouteData.$route(
+      path: '/home',
+      name: 'home',
+      factory: $HomeScreenRouteExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: 'by-breed',
+          name: 'byBreed',
+          factory: $DogByBreedScreenRouteExtension._fromState,
+        ),
+      ],
+    );
+
+extension $HomeScreenRouteExtension on HomeScreenRoute {
+  static HomeScreenRoute _fromState(GoRouterState state) =>
+      const HomeScreenRoute();
+
+  String get location => GoRouteData.$location(
+        '/home',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $DogByBreedScreenRouteExtension on DogByBreedScreenRoute {
+  static DogByBreedScreenRoute _fromState(GoRouterState state) =>
+      const DogByBreedScreenRoute();
+
+  String get location => GoRouteData.$location(
+        '/home/by-breed',
       );
 
   void go(BuildContext context) => context.go(location);

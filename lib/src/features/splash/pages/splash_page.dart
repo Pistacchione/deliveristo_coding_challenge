@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/routes/routes.dart';
 import '../bloc/splash_cubit.dart';
 
 class SplashPage extends StatelessWidget {
@@ -22,7 +23,17 @@ class SplashPage extends StatelessWidget {
             ],
           ),
         ),
-        child: BlocBuilder<SplashCubit, SplashState>(
+        child: BlocConsumer<SplashCubit, SplashState>(
+          listener: (context, state) {
+            switch (state) {
+              case SplashStateInitial() || SplashStateLoading():
+                break;
+              case SplashStateDog() || SplashStateError():
+                Future.delayed(const Duration(seconds: 3), () {
+                  const HomeScreenRoute().go(context);
+                });
+            }
+          },
           builder: (context, state) {
             switch (state) {
               case SplashStateInitial() || SplashStateLoading() || SplashStateError():
