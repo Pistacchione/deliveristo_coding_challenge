@@ -3,7 +3,12 @@ import 'package:get_it/get_it.dart';
 
 import '../../commons/datasources/dog_api.dart';
 import '../../commons/datasources/dog_api_impl.dart';
+import '../../commons/repositories/dog_repository.dart';
+import '../../commons/repositories/dog_repository_impl.dart';
+import '../../commons/usecases/get_random_dog_usecase.dart';
+import '../../features/splash/bloc/splash_cubit.dart';
 import '../env.dart';
+import '../routes/app_router.dart';
 
 final injector = GetIt.instance;
 
@@ -19,6 +24,7 @@ void init() {
 void _initDependencies() {}
 
 void _initCore() {
+  injector.registerLazySingleton<AppRouter>(() => AppRouter());
   injector.registerFactory<Dio>(() {
     return Dio(
       BaseOptions(
@@ -35,8 +41,14 @@ void _initApi() {
   injector.registerFactory<DogApi>(() => DogApiImpl(dio: injector()));
 }
 
-void _initRepositories() {}
+void _initRepositories() {
+  injector.registerFactory<DogRepository>(() => DogRepositoryImpl(api: injector()));
+}
 
-void _initUseCases() {}
+void _initUseCases() {
+  injector.registerFactory<GetRandomDogUseCase>(() => GetRandomDogUseCase(repository: injector()));
+}
 
-void _initBlocs() {}
+void _initBlocs() {
+  injector.registerFactory<SplashCubit>(() => SplashCubit(getRandomDogUseCase: injector()));
+}

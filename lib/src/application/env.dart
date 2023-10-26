@@ -1,6 +1,7 @@
 class Env {
   Env._();
 
+  static const appName = String.fromEnvironment('DOG_APP_NAME', defaultValue: 'Random Dogs');
   static const http = _HttpConfig();
 }
 

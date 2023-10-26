@@ -6,16 +6,15 @@ part of 'dog_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-DogResponseError _$DogResponseErrorFromJson(Map<String, dynamic> json) {
+RandomDogResponse _$RandomDogResponseFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     disallowNullValues: const ['status'],
   );
-  return DogResponseError(
-    message: json['message'] as String,
-    code: json['code'] as int,
+  return RandomDogResponse(
     status: $enumDecode(_$StatusResponseEnumMap, json['status'],
         unknownValue: StatusResponse.error),
+    url: json['message'] as String,
   );
 }
 
@@ -23,15 +22,3 @@ const _$StatusResponseEnumMap = {
   StatusResponse.success: 'success',
   StatusResponse.error: 'error',
 };
-
-RandomDogResponse _$RandomDogResponseFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    disallowNullValues: const ['status'],
-  );
-  return RandomDogResponse(
-    dogUrl: Uri.parse(json['message'] as String),
-    status: $enumDecode(_$StatusResponseEnumMap, json['status'],
-        unknownValue: StatusResponse.error),
-  );
-}

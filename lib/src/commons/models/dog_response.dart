@@ -4,29 +4,15 @@ part 'dog_response.g.dart';
 
 enum StatusResponse { success, error }
 
-sealed class DogResponse {
+@JsonSerializable()
+class RandomDogResponse {
   @JsonKey(disallowNullValue: true, unknownEnumValue: StatusResponse.error)
   final StatusResponse status;
 
-  DogResponse({required this.status});
-}
-
-@JsonSerializable()
-class DogResponseError extends DogResponse {
-  final String message;
-  final int code;
-
-  DogResponseError({required this.message, required this.code, required super.status});
-
-  factory DogResponseError.fromJson(json) => _$DogResponseErrorFromJson(json);
-}
-
-@JsonSerializable()
-class RandomDogResponse extends DogResponse {
   @JsonKey(name: 'message')
-  final Uri dogUrl;
+  final String url;
 
-  RandomDogResponse({required this.dogUrl, required super.status});
+  RandomDogResponse({required this.status, required this.url});
 
   factory RandomDogResponse.fromJson(json) => _$RandomDogResponseFromJson(json);
 }

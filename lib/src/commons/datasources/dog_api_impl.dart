@@ -9,14 +9,14 @@ class DogApiImpl implements DogApi {
   DogApiImpl({required Dio dio}) : _dio = dio;
 
   @override
-  Future<DogResponse> getRandomDog() async {
+  Future<RandomDogResponse> getRandomDog() async {
     final response = await _dio.get('/api/breeds/image/random');
 
     return RandomDogResponse.fromJson(response.data);
   }
 
   @override
-  Future<DogResponse> getDogByBreed({required String breed}) async {
+  Future<RandomDogResponse> getDogByBreed({required String breed}) async {
     final response = await _dio.get('/api/breeds/$breed/image/random');
 
     return RandomDogResponse.fromJson(response.data);

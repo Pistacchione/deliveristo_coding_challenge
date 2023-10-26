@@ -1,6 +1,6 @@
 import '../models/dog_response.dart';
 
 abstract class DogApi {
-  Future<DogResponse> getRandomDog();
-  Future<DogResponse> getDogByBreed({required String breed});
+  Future<RandomDogResponse> getRandomDog();
+  Future<RandomDogResponse> getDogByBreed({required String breed});
 }
