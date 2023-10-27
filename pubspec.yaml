@@ -47,6 +47,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   go_router_builder: ^2.3.3
+  integration_test:
+    sdk: flutter
   json_serializable: ^6.7.1
   mockito: ^5.4.2
   mocktail: ^1.0.1

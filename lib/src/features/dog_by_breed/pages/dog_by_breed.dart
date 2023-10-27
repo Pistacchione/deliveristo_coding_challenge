@@ -85,6 +85,7 @@ class _DogByBreedPageState extends State<DogByBreedPage> {
                         CachedNetworkImage(
                           imageUrl: state.dog.url,
                           imageBuilder: (context, imageProvider) => Container(
+                            key: const ValueKey('randomDogImage'),
                             width: MediaQuery.of(context).size.width / 1.5,
                             height: MediaQuery.of(context).size.height / 1.5,
                             decoration: BoxDecoration(

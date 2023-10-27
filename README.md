@@ -1,16 +1,29 @@
-# deliveristo_flutter_challenge
+# Deliveristo Flutter Frontend Coding Challenge App
 
-A new Flutter project.
+A Flutter project for Deliveristo coding challenge [here](https://github.com/andreaperinu/flutter-challenge)
+
+## Requirements
+
+App was build using Flutter version `3.13.6`
+
+A `dart-define` parameter is required in order to run the app:
+- `BASE_URL` the url of backend
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To run the app launch
+```
+flutter run lib\main --dart-define BASE_URL=https://dog.ceo
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Testing
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+To run unit tests launch
+```
+flutter test test
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To run integration test launch
+```
+flutter test integration_test/app_test.dart --dart-define BASE_URL=https://dog.ceo
+```
