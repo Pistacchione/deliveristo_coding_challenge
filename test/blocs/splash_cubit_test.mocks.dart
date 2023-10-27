@@ -5,6 +5,8 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:deliveristo_flutter_challenge/src/application/errors/errors.dart'
     as _i4;
+import 'package:deliveristo_flutter_challenge/src/commons/models/breed.dart'
+    as _i7;
 import 'package:deliveristo_flutter_challenge/src/commons/models/dog_response.dart'
     as _i5;
 import 'package:deliveristo_flutter_challenge/src/commons/repositories/dog_repository.dart'
@@ -48,4 +50,41 @@ class MockDogRepository extends _i1.Mock implements _i2.DogRepository {
           ),
         ),
       ) as _i3.TaskEither<_i4.Failure, _i5.RandomDogResponse>);
+
+  @override
+  _i3.TaskEither<_i4.Failure, _i5.RandomDogResponse> getDogByBreed(
+          {required String? breed}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getDogByBreed,
+          [],
+          {#breed: breed},
+        ),
+        returnValue:
+            _i6.dummyValue<_i3.TaskEither<_i4.Failure, _i5.RandomDogResponse>>(
+          this,
+          Invocation.method(
+            #getDogByBreed,
+            [],
+            {#breed: breed},
+          ),
+        ),
+      ) as _i3.TaskEither<_i4.Failure, _i5.RandomDogResponse>);
+
+  @override
+  _i3.TaskEither<_i4.Failure, List<_i7.Breed>> getBreeds() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getBreeds,
+          [],
+        ),
+        returnValue:
+            _i6.dummyValue<_i3.TaskEither<_i4.Failure, List<_i7.Breed>>>(
+          this,
+          Invocation.method(
+            #getBreeds,
+            [],
+          ),
+        ),
+      ) as _i3.TaskEither<_i4.Failure, List<_i7.Breed>>);
 }

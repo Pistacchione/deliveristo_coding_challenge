@@ -2,6 +2,7 @@ import 'package:fpdart/fpdart.dart';
 
 import '../../application/errors/errors.dart';
 import '../datasources/dog_api.dart';
+import '../models/breed.dart';
 import '../models/dog_response.dart';
 import 'dog_repository.dart';
 
@@ -14,6 +15,26 @@ class DogRepositoryImpl implements DogRepository {
   TaskEither<Failure, RandomDogResponse> getRandomDog() {
     return TaskEither.tryCatch(() async {
       final response = await _api.getRandomDog();
+      return response;
+    }, (error, _) {
+      return DataFailure(message: error.toString());
+    });
+  }
+
+  @override
+  TaskEither<Failure, RandomDogResponse> getDogByBreed({required String breed}) {
+    return TaskEither.tryCatch(() async {
+      final response = await _api.getDogByBreed(breed: breed);
+      return response;
+    }, (error, _) {
+      return DataFailure(message: error.toString());
+    });
+  }
+
+  @override
+  TaskEither<Failure, List<Breed>> getBreeds() {
+    return TaskEither.tryCatch(() async {
+      final response = await _api.getBreeds();
       return response;
     }, (error, _) {
       return DataFailure(message: error.toString());

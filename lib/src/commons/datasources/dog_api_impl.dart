@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:fpdart/fpdart.dart';
 
+import '../models/breed.dart';
 import '../models/dog_response.dart';
 import 'dog_api.dart';
 
@@ -17,8 +19,24 @@ class DogApiImpl implements DogApi {
 
   @override
   Future<RandomDogResponse> getDogByBreed({required String breed}) async {
-    final response = await _dio.get('/api/breeds/$breed/image/random');
+    final response = await _dio.get('/api/breed/$breed/images/random');
 
     return RandomDogResponse.fromJson(response.data);
+  }
+
+  @override
+  Future<List<Breed>> getBreeds() async {
+    final response = await _dio.get('/api/breeds/list/all');
+    final message = response.data['message'] as Map<String, dynamic>;
+    final listOfBreed = message.keys.map((breed) {
+      final subBreed = message[breed];
+      if (subBreed is List && subBreed.all((t) => t is String)) {
+        return Breed(name: breed, subBreeds: List<String>.from(subBreed));
+      }
+
+      return Breed(name: breed);
+    }).toList();
+
+    return listOfBreed;
   }
 }

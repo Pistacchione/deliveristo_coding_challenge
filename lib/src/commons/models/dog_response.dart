@@ -14,5 +14,5 @@ class RandomDogResponse {
 
   RandomDogResponse({required this.status, required this.url});
 
-  factory RandomDogResponse.fromJson(json) => _$RandomDogResponseFromJson(json);
+  factory RandomDogResponse.fromJson(Map<String, dynamic> json) => _$RandomDogResponseFromJson(json);
 }

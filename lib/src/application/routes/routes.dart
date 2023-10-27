@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/dog_by_breed/bloc/dog_by_breed_cubit.dart';
 import '../../features/dog_by_breed/pages/dog_by_breed.dart';
 import '../../features/home/pages/home.dart';
 import '../../features/splash/bloc/splash_cubit.dart';
@@ -40,6 +41,9 @@ class DogByBreedScreenRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const DogByBreedPage();
+    return BlocProvider<DobByBreedCubit>(
+      create: (context) => context.injector()..getBreeds(),
+      child: const DogByBreedPage(),
+    );
   }
 }
