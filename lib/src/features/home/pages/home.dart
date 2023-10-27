@@ -21,7 +21,9 @@ class HomePage extends StatelessWidget {
           ListTile(
             title: const Text('Images list by breed'),
             trailing: const Icon(Icons.keyboard_arrow_right, size: 30.0),
-            onTap: () {},
+            onTap: () {
+              const AllDogsByBreedScreenRoute().go(context);
+            },
           ),
           ListTile(
             title: const Text('Random image by breed and sub breed'),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/all_dog_by_breed/bloc/all_dogs_by_breed_cubit.dart';
+import '../../features/all_dog_by_breed/pages/all_dogs_by_breed.dart';
 import '../../features/dog_by_breed/bloc/dog_by_breed_cubit.dart';
 import '../../features/dog_by_breed/pages/dog_by_breed.dart';
 import '../../features/home/pages/home.dart';
@@ -26,6 +28,7 @@ class SplashScreenRoute extends GoRouteData {
 
 @TypedGoRoute<HomeScreenRoute>(path: '/home', name: 'home', routes: [
   TypedGoRoute<DogByBreedScreenRoute>(path: 'by-breed', name: 'byBreed'),
+  TypedGoRoute<AllDogsByBreedScreenRoute>(path: 'all-by-breed', name: 'allByBreed'),
 ])
 class HomeScreenRoute extends GoRouteData {
   const HomeScreenRoute();
@@ -44,6 +47,18 @@ class DogByBreedScreenRoute extends GoRouteData {
     return BlocProvider<DobByBreedCubit>(
       create: (context) => context.injector()..getBreeds(),
       child: const DogByBreedPage(),
+    );
+  }
+}
+
+class AllDogsByBreedScreenRoute extends GoRouteData {
+  const AllDogsByBreedScreenRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return BlocProvider<AllDogsByBreedCubit>(
+      create: (context) => context.injector()..getBreeds(),
+      child: const AllDogsByBreedPage(),
     );
   }
 }

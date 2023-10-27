@@ -39,4 +39,11 @@ class DogApiImpl implements DogApi {
 
     return listOfBreed;
   }
+
+  @override
+  Future<List<RandomDogResponse>> getDogsByBreed({required String breed}) async {
+    final response = await _dio.get('/api/breed/$breed/images');
+
+    return RandomDogResponse.allDog(response.data);
+  }
 }

@@ -5,4 +5,5 @@ abstract class DogApi {
   Future<RandomDogResponse> getRandomDog();
   Future<RandomDogResponse> getDogByBreed({required String breed});
   Future<List<Breed>> getBreeds();
+  Future<List<RandomDogResponse>> getDogsByBreed({required String breed});
 }
