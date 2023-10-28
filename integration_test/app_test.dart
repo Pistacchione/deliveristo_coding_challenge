@@ -15,7 +15,7 @@ void main() {
       await di.injector.allReady();
 
       await tester.pumpWidget(const MyApp());
-      await tester.waitFor(find.text('Random image by breed'));
+      await tester.waitFor(find.byKey(const ValueKey('randomImageByBreed')));
 
       final listRow = find.byKey(const ValueKey('randomImageByBreed'));
       await tester.tap(listRow);
@@ -26,7 +26,7 @@ void main() {
       await tester.tap(dropdown);
       await tester.pump();
 
-      final dropdownItem = find.text('affenpinscher').last;
+      final dropdownItem = find.text('Affenpinscher').last;
       await tester.tap(dropdownItem);
       await tester.pump();
 
