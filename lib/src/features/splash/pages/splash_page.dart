@@ -31,7 +31,9 @@ class SplashPage extends StatelessWidget {
                 break;
               case SplashStateDog() || SplashStateError():
                 Future.delayed(const Duration(seconds: 3), () {
-                  const HomeScreenRoute().go(context);
+                  if (context.mounted) {
+                    const HomeScreenRoute().go(context);
+                  }
                 });
             }
           },

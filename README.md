@@ -4,7 +4,7 @@ A Flutter project for Deliveristo coding challenge [here](https://github.com/and
 
 ## Requirements
 
-App was build using Flutter version `3.13.6`
+App was build using Flutter version `3.24.3`
 
 A `dart-define` parameter is required in order to run the app:
 - `BASE_URL` the url of backend
