@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/usecases/usecase_params.dart';
 import '../../../commons/models/breed.dart';
 import '../../../commons/models/dog_response.dart';
-import '../../../commons/usecases/get_all_dogs_by_breed.dart';
 import '../../../commons/usecases/get_breeds_usecase.dart';
+import '../domain/usecases/get_all_dogs_by_breed.dart';
 
 part 'all_dogs_by_breed_state.dart';
 

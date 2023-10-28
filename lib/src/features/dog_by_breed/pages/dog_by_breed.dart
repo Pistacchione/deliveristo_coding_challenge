@@ -2,26 +2,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../commons/models/breed.dart';
+import '../../../commons/widgets/breed_dropdown.dart';
 import '../bloc/dog_by_breed_cubit.dart';
 
-class DogByBreedPage extends StatefulWidget {
+class DogByBreedPage extends StatelessWidget {
   const DogByBreedPage({super.key});
-
-  @override
-  State<DogByBreedPage> createState() => _DogByBreedPageState();
-}
-
-class _DogByBreedPageState extends State<DogByBreedPage> {
-  Breed? selectedBreed;
-
-  String get submitButtonText {
-    if (selectedBreed != null) {
-      return 'Get Dog by ${selectedBreed?.name}';
-    }
-
-    return 'Get Dog';
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,42 +29,11 @@ class _DogByBreedPageState extends State<DogByBreedPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text('Breed'),
-                          DropdownButton(
-                            key: const ValueKey('breedDropDown'),
-                            items: state.breeds.map((breed) {
-                              return DropdownMenuItem(
-                                value: breed,
-                                child: Text(breed.name),
-                              );
-                            }).toList(),
-                            value: selectedBreed,
-                            onChanged: (value) {
-                              setState(() {
-                                selectedBreed = value;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: ElevatedButton(
-                              onPressed: selectedBreed != null
-                                  ? () {
-                                      context
-                                          .read<DobByBreedCubit>()
-                                          .getDobByBreed(breed: selectedBreed?.name);
-                                    }
-                                  : null,
-                              child: Text(submitButtonText),
-                            ),
-                          ),
-                        ],
+                      BreedDropdown(
+                        breeds: state.breeds,
+                        onPressed: (selectedBreed) {
+                          context.read<DobByBreedCubit>().getDobByBreed(breed: selectedBreed?.name);
+                        },
                       ),
                       if (state is DogByBreedStateDog)
                         CachedNetworkImage(

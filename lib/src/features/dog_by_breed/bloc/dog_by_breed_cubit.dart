@@ -5,7 +5,7 @@ import '../../../application/usecases/usecase_params.dart';
 import '../../../commons/models/breed.dart';
 import '../../../commons/models/dog_response.dart';
 import '../../../commons/usecases/get_breeds_usecase.dart';
-import '../../../commons/usecases/get_random_dog_by_breed_usecase.dart';
+import '../domain/usecases/get_random_dog_by_breed_usecase.dart';
 
 part 'dog_by_breed_state.dart';
 

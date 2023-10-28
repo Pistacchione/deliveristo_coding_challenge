@@ -4,7 +4,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:deliveristo_flutter_challenge/src/application/errors/errors.dart';
 import 'package:deliveristo_flutter_challenge/src/commons/models/dog_response.dart';
 import 'package:deliveristo_flutter_challenge/src/commons/repositories/dog_repository.dart';
-import 'package:deliveristo_flutter_challenge/src/commons/usecases/get_random_dog_usecase.dart';
+import 'package:deliveristo_flutter_challenge/src/features/splash/domain/usecases/get_random_dog_usecase.dart';
 import 'package:deliveristo_flutter_challenge/src/features/splash/bloc/splash_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fpdart/fpdart.dart';

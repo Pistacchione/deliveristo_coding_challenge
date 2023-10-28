@@ -9,4 +9,8 @@ abstract class DogRepository {
   TaskEither<Failure, RandomDogResponse> getDogByBreed({required String breed});
   TaskEither<Failure, List<Breed>> getBreeds();
   TaskEither<Failure, List<RandomDogResponse>> getAllDogByBreed({required String breed});
+  TaskEither<Failure, RandomDogResponse> getDogByBreedSubBreed({
+    required String breed,
+    required String subBreed,
+  });
 }

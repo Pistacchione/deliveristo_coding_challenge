@@ -7,3 +7,10 @@ class BreedParams extends UseCaseParams {
 
   BreedParams({required this.breed});
 }
+
+class BreedSubBreedParams extends UseCaseParams {
+  final String breed;
+  final String subBreed;
+
+  BreedSubBreedParams({required this.breed, required this.subBreed});
+}

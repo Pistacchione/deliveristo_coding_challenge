@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/usecases/usecase_params.dart';
 import '../../../commons/models/dog_response.dart';
-import '../../../commons/usecases/get_random_dog_usecase.dart';
+import '../domain/usecases/get_random_dog_usecase.dart';
 
 part 'splash_state.dart';
 
