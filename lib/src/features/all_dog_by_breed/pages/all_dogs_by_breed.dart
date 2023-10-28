@@ -30,7 +30,7 @@ class AllDogsByBreedPage extends StatelessWidget {
                   children: [
                     BreedDropdown(
                       breeds: state.breeds,
-                      onPressed: (selectedBreed) {
+                      onPressed: (selectedBreed, _) {
                         context
                             .read<AllDogsByBreedCubit>()
                             .getAllDogsByBreed(breed: selectedBreed?.name);

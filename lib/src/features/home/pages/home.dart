@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
         children: [
           ListTile(
             key: const ValueKey('randomImageByBreed'),
-            title: const Text('Random Dob by breed'),
+            title: const Text('Dog by breed'),
             trailing: const Icon(Icons.keyboard_arrow_right, size: 30.0),
             onTap: () {
               const DogByBreedScreenRoute().go(context);
@@ -27,9 +27,11 @@ class HomePage extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Random Dob by breed and sub breed'),
+            title: const Text('Dog by breed and sub breed'),
             trailing: const Icon(Icons.keyboard_arrow_right, size: 30.0),
-            onTap: () {},
+            onTap: () {
+              const DogByBreedSubBreedScreenRoute().go(context);
+            },
           ),
           // ListTile(
           //   title: const Text('Images list by breed and sub breed'),

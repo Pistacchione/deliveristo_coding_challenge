@@ -5,14 +5,15 @@ import '../../commons/datasources/dog_api.dart';
 import '../../commons/datasources/dog_api_impl.dart';
 import '../../commons/repositories/dog_repository.dart';
 import '../../commons/repositories/dog_repository_impl.dart';
-import '../../features/all_dog_by_breed/domain/usecases/get_all_dogs_by_breed.dart';
 import '../../commons/usecases/get_breeds_usecase.dart';
-import '../../commons/usecases/get_random_dog_by_breed_subbreed_usecase.dart';
-import '../../features/dog_by_breed/domain/usecases/get_random_dog_by_breed_usecase.dart';
-import '../../features/splash/domain/usecases/get_random_dog_usecase.dart';
 import '../../features/all_dog_by_breed/bloc/all_dogs_by_breed_cubit.dart';
+import '../../features/all_dog_by_breed/domain/usecases/get_all_dogs_by_breed.dart';
 import '../../features/dog_by_breed/bloc/dog_by_breed_cubit.dart';
+import '../../features/dog_by_breed/domain/usecases/get_random_dog_by_breed_usecase.dart';
+import '../../features/dog_by_breed_subbreed/bloc/dog_by_breed_subbreed_cubit.dart';
+import '../../features/dog_by_breed_subbreed/domain/usecases/get_random_dog_by_breed_subbreed_usecase.dart';
 import '../../features/splash/bloc/splash_cubit.dart';
+import '../../features/splash/domain/usecases/get_random_dog_usecase.dart';
 import '../env.dart';
 import '../routes/app_router.dart';
 
@@ -72,5 +73,9 @@ void _initBlocs() {
   );
   injector.registerFactory<AllDogsByBreedCubit>(
     () => AllDogsByBreedCubit(getBreedsUseCase: injector(), getAllDogsByBreedUseCase: injector()),
+  );
+  injector.registerFactory<DogByBreedSubBreedCubit>(
+    () => DogByBreedSubBreedCubit(
+        getBreedsUseCase: injector(), getRandomDogByBreedSubBreedUseCase: injector()),
   );
 }

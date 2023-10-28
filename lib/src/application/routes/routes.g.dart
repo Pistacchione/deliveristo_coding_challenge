@@ -50,6 +50,11 @@ RouteBase get $homeScreenRoute => GoRouteData.$route(
           name: 'allByBreed',
           factory: $AllDogsByBreedScreenRouteExtension._fromState,
         ),
+        GoRouteData.$route(
+          path: 'by-breed-subbreed',
+          name: 'byBreedSubBreed',
+          factory: $DogByBreedSubBreedScreenRouteExtension._fromState,
+        ),
       ],
     );
 
@@ -95,6 +100,25 @@ extension $AllDogsByBreedScreenRouteExtension on AllDogsByBreedScreenRoute {
 
   String get location => GoRouteData.$location(
         '/home/all-by-breed',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $DogByBreedSubBreedScreenRouteExtension
+    on DogByBreedSubBreedScreenRoute {
+  static DogByBreedSubBreedScreenRoute _fromState(GoRouterState state) =>
+      const DogByBreedSubBreedScreenRoute();
+
+  String get location => GoRouteData.$location(
+        '/home/by-breed-subbreed',
       );
 
   void go(BuildContext context) => context.go(location);
