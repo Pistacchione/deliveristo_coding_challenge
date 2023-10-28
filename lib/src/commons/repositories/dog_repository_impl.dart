@@ -63,4 +63,17 @@ class DogRepositoryImpl implements DogRepository {
       return DataFailure(message: error.toString());
     });
   }
+
+  @override
+  TaskEither<Failure, List<RandomDogResponse>> getAllDogsByBreedSubBreed({
+    required String breed,
+    required String subBreed,
+  }) {
+    return TaskEither.tryCatch(() async {
+      final response = await _api.getDogsByBreedSubBreed(breed: breed, subBreed: subBreed);
+      return response;
+    }, (error, _) {
+      return DataFailure(message: error.toString());
+    });
+  }
 }

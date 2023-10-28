@@ -13,4 +13,8 @@ abstract class DogRepository {
     required String breed,
     required String subBreed,
   });
+  TaskEither<Failure, List<RandomDogResponse>> getAllDogsByBreedSubBreed({
+    required String breed,
+    required String subBreed,
+  });
 }

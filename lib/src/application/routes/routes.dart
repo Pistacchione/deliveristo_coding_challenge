@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../features/all_dog_by_breed/bloc/all_dogs_by_breed_cubit.dart';
-import '../../features/all_dog_by_breed/pages/all_dogs_by_breed.dart';
+import '../../features/all_dogs_by_breed/bloc/all_dogs_by_breed_cubit.dart';
+import '../../features/all_dogs_by_breed/pages/all_dogs_by_breed.dart';
+import '../../features/all_dogs_by_breed_subbreed/bloc/all_dogs_by_breed_subbreed_cubit.dart';
+import '../../features/all_dogs_by_breed_subbreed/pages/all_dogs_by_breed_subbreed.dart';
 import '../../features/dog_by_breed/bloc/dog_by_breed_cubit.dart';
 import '../../features/dog_by_breed/pages/dog_by_breed.dart';
 import '../../features/dog_by_breed_subbreed/bloc/dog_by_breed_subbreed_cubit.dart';
@@ -32,6 +34,10 @@ class SplashScreenRoute extends GoRouteData {
   TypedGoRoute<DogByBreedScreenRoute>(path: 'by-breed', name: 'byBreed'),
   TypedGoRoute<AllDogsByBreedScreenRoute>(path: 'all-by-breed', name: 'allByBreed'),
   TypedGoRoute<DogByBreedSubBreedScreenRoute>(path: 'by-breed-subbreed', name: 'byBreedSubBreed'),
+  TypedGoRoute<AllDogsByBreedSubBreedScreenRoute>(
+    path: 'all-by-breed-subbreed',
+    name: 'allByBreedSubBreed',
+  ),
 ])
 class HomeScreenRoute extends GoRouteData {
   const HomeScreenRoute();
@@ -74,6 +80,18 @@ class DogByBreedSubBreedScreenRoute extends GoRouteData {
     return BlocProvider<DogByBreedSubBreedCubit>(
       create: (context) => context.injector()..getBreeds(),
       child: const DogByBreedSubBreedPage(),
+    );
+  }
+}
+
+class AllDogsByBreedSubBreedScreenRoute extends GoRouteData {
+  const AllDogsByBreedSubBreedScreenRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return BlocProvider<AllDogsByBreedSubBreedCubit>(
+      create: (context) => context.injector()..getBreeds(),
+      child: const AllDogsByBreedSubBreedPage(),
     );
   }
 }

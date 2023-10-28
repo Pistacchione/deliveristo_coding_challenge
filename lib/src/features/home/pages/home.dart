@@ -33,11 +33,13 @@ class HomePage extends StatelessWidget {
               const DogByBreedSubBreedScreenRoute().go(context);
             },
           ),
-          // ListTile(
-          //   title: const Text('Images list by breed and sub breed'),
-          //   trailing: const Icon(Icons.keyboard_arrow_right, size: 30.0),
-          //   onTap: () {},
-          // ),
+          ListTile(
+            title: const Text('Dogs by breed and sub breed'),
+            trailing: const Icon(Icons.keyboard_arrow_right, size: 30.0),
+            onTap: () {
+              const AllDogsByBreedSubBreedScreenRoute().go(context);
+            },
+          ),
         ],
       ),
     );

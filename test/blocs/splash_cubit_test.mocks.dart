@@ -135,4 +135,33 @@ class MockDogRepository extends _i1.Mock implements _i2.DogRepository {
           ),
         ),
       ) as _i3.TaskEither<_i4.Failure, _i5.RandomDogResponse>);
+
+  @override
+  _i3.TaskEither<_i4.Failure, List<_i5.RandomDogResponse>>
+      getAllDogsByBreedSubBreed({
+    required String? breed,
+    required String? subBreed,
+  }) =>
+          (super.noSuchMethod(
+            Invocation.method(
+              #getAllDogsByBreedSubBreed,
+              [],
+              {
+                #breed: breed,
+                #subBreed: subBreed,
+              },
+            ),
+            returnValue: _i6.dummyValue<
+                _i3.TaskEither<_i4.Failure, List<_i5.RandomDogResponse>>>(
+              this,
+              Invocation.method(
+                #getAllDogsByBreedSubBreed,
+                [],
+                {
+                  #breed: breed,
+                  #subBreed: subBreed,
+                },
+              ),
+            ),
+          ) as _i3.TaskEither<_i4.Failure, List<_i5.RandomDogResponse>>);
 }
