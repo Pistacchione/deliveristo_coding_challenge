@@ -11,6 +11,7 @@ include: package:flutter_lints/flutter.yaml
 
 analyzer:
   exclude:
+    - lib/generated/**
     - '**/*.g.dart'
 
 linter:

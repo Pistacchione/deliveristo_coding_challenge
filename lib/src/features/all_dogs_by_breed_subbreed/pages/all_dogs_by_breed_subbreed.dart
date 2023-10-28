@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/extensions/buildcontext_extension.dart';
 import '../../../commons/widgets/all_dogs_gridview.dart';
 import '../../../commons/widgets/breed_dropdown.dart';
 import '../bloc/all_dogs_by_breed_subbreed_cubit.dart';
@@ -11,7 +12,7 @@ class AllDogsByBreedSubBreedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Images list by breed')),
+      appBar: AppBar(title: Text(context.translate.dogByBreedSubBreedTitle(2))),
       body: BlocBuilder<AllDogsByBreedSubBreedCubit, AllDogsByBreedSubBreedState>(
         builder: (context, state) {
           switch (state) {

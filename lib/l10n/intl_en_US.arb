@@ -1,0 +1,48 @@
+{
+  "@@locale": "en_US",
+  "getStarted": "Amazing Random Dog",
+  "@getStarted": {},
+  "breed": "Breed",
+  "@breed": {},
+  "subBreed": "Sub Breed",
+  "@subBreed": {},
+  "homeTitle": "Random Dog",
+  "@homeTitle": {},
+  "dogByBreedTitle": "{many, plural, one{Dog by breed} other{Dogs by breed}}",
+  "@dogByBreedTitle": {
+    "placeholders": {
+      "many": {
+        "type": "int"
+      }
+    }
+  },
+  "dogByBreedSubBreedTitle": "{many, plural, one{Dog by breed and sub breed} other{Dogs by breed and sub breed}}",
+  "@dogByBreedSubBreedTitle": {
+    "placeholders": {
+      "many": {
+        "type": "int"
+      }
+    }
+  },
+  "disableSubmit": "Get Dog",
+  "@disableSubmit": {},
+  "submitBreedSelection": "Get Dog by {breed}",
+  "@submitBreedSelection": {
+    "placeholders": {
+      "breed": {
+        "type": "String"
+      }
+    }
+  },
+  "submitBreedSubBreedSelection": "Get Dog by {subBreed} {breed}",
+  "@submitBreedSubBreedSelection": {
+    "placeholders": {
+      "breed": {
+        "type": "String"
+      },
+      "subBreed": {
+        "type": "String"
+      }
+    }
+  }
+}

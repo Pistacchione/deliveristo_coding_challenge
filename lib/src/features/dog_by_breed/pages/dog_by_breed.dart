@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/extensions/buildcontext_extension.dart';
 import '../../../commons/widgets/breed_dropdown.dart';
 import '../../../commons/widgets/dog_image_loader.dart';
 import '../bloc/dog_by_breed_cubit.dart';
@@ -11,7 +12,7 @@ class DogByBreedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Random image by breed')),
+      appBar: AppBar(title: Text(context.translate.dogByBreedTitle(1))),
       body: BlocBuilder<DobByBreedCubit, DogByBreedState>(
         builder: (context, state) {
           switch (state) {

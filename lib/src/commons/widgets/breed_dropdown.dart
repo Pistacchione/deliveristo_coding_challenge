@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
+import '../../application/extensions/buildcontext_extension.dart';
 import '../models/breed.dart';
 
 class BreedDropdown extends StatefulWidget {
@@ -27,16 +29,15 @@ class _BreedDropdownState extends State<BreedDropdown> {
   }
 
   String get submitButtonText {
-    var text = 'Get Dog';
-    if (widget.showSubBreed) {
-      if (selectedBreed != null && selectedSubBreed != null) {
-        text += ' by $selectedSubBreed ${selectedBreed?.name}';
-      }
-    } else if (selectedBreed != null) {
-      text += ' by ${selectedBreed?.name}';
+    if (widget.showSubBreed && selectedBreed != null && selectedSubBreed != null) {
+      return context.translate.submitBreedSubBreedSelection(selectedBreed!.name, selectedSubBreed!);
     }
 
-    return text;
+    if (selectedBreed != null) {
+      return context.translate.submitBreedSelection(selectedBreed!.name);
+    }
+
+    return context.translate.disableSubmit;
   }
 
   @override
@@ -47,13 +48,13 @@ class _BreedDropdownState extends State<BreedDropdown> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text('Breed'),
+            Text(context.translate.breed),
             DropdownButton(
               key: const ValueKey('breedDropDown'),
               items: widget.breeds.map((breed) {
                 return DropdownMenuItem(
                   value: breed,
-                  child: Text(breed.name),
+                  child: Text(toBeginningOfSentenceCase(breed.name) ?? breed.name),
                 );
               }).toList(),
               value: selectedBreed,
@@ -71,13 +72,13 @@ class _BreedDropdownState extends State<BreedDropdown> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Sub Breed'),
+              Text(context.translate.subBreed),
               DropdownButton(
                 key: const ValueKey('subBreedDropDown'),
-                items: subBreeds?.map((breed) {
+                items: subBreeds?.map((subBreed) {
                   return DropdownMenuItem(
-                    value: breed,
-                    child: Text(breed),
+                    value: subBreed,
+                    child: Text(toBeginningOfSentenceCase(subBreed) ?? subBreed),
                   );
                 }).toList(),
                 value: selectedSubBreed,

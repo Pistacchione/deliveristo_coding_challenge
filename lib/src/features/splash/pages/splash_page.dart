@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/extensions/buildcontext_extension.dart';
 import '../../../application/routes/routes.dart';
 import '../bloc/splash_cubit.dart';
 
@@ -53,9 +54,9 @@ class SplashPage extends StatelessWidget {
                             image: DecorationImage(image: imageProvider, fit: BoxFit.contain),
                           ),
                         ),
-                        const Text(
-                          'Amazing Random Dog',
-                          style: TextStyle(
+                        Text(
+                          context.translate.getStarted,
+                          style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
